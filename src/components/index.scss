@@ -1,0 +1,58 @@
+@use 'sass:math';
+
+$-fib-rectangle-width: 38.2%;
+$-fib-rectangle-height: 100%;
+$-fib-square: 38.2%;
+$-fib: 38.2%;
+$-fib-px: 3.82px;
+$-fib-big: math.pow(3.82, 2);
+$-fib-big-px: $-fib-big * 1px;
+$-fib-mul: 0.0382;
+
+
+@mixin alpha-bg($--color, $--alpha) {
+    /* make hex color transparent */
+    background: rgba( $--color, $--alpha );
+}
+@mixin gradient-alpha-bg($direction, $alpha, $color-from, $color-to) {
+    $--color-from: rgba($color-from, $alpha);
+    $--color-to: rgba($color-to, $alpha);
+    background: linear-gradient($direction, $color-from, $color-to);
+}
+
+/** I found these by looking for a color pallete used 
+ *  specifically for web-design
+ */
+
+$-navy:      #001f3f;
+$-blue:      #0074d9;
+$-aqua:      #7fdbff;
+$-teal:      #39cccc;
+$-olive:     #3d9970;
+$-green:     #2ecc40;
+$-lime:      #01ff70;
+$-yellow:    #ffdc00;
+$-orange:    #ff851b;
+$-red:       #ff4136;
+$-maroon:    #85144b;
+$-fuchsia:   #f012be;
+$-purple:    #b10dc9;
+$-black:     #111111;
+$-gray:      #aaaaaa;
+$-sliver:    #dddddd;
+$-white:     white;
+/* not in the original pallete */
+$-navy-shadow: rgba(0, 31, 63, $-fib);
+$-sliver-aura: rgba(221, 221, 221, $-fib);
+
+/** Morning color pallete (gray-ish) 
+ * https://colorpalettes.net/color-palette-4198/
+ */
+
+ $-night-blue:     #22272c;
+ $-before-morning: #2a4158;
+ $-early-morning:  #597387;
+ $-foggy-morning:  #8c9ea3;
+ $-urban:          #958a56;
+ $-urban-morning: lighten($-urban, 60%);
+ $-urban-day: lighten($-urban, 28%);
