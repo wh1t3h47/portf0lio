@@ -1,7 +1,7 @@
 <template>
   <div class="about-me">
     <div class="picture-container">
-      <img />
+      <img src="@/assets/logo.png" />
     </div>
     <div class="line"></div>
     <div class="information-container"></div>
@@ -17,6 +17,8 @@ export default {
 <style scoped lang="scss">
 @import "./index.scss";
 .about-me {
+  @include gradient-alpha-bg(to top, 1, $-urban-day, $-urban);
+  border-radius: 0 $-fib-px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,8 +27,6 @@ export default {
   top: 0;
   height: 100%;
   width: 38.2%;
-  background: $-sliver;
-  background-image: linear-gradient($-gray, $-sliver);
   &:hover {
     box-shadow: $-fib-px 0 $-fib-px * 2 $-sliver-aura;
   }
@@ -37,13 +37,31 @@ export default {
   width: $-fib-px * 50;
   border-radius: 50%;
   background: $-olive;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: inherit;
+  }
 }
 .line {
-  margin-top: $-fib-px * 2;
-  margin-bottom: $-fib-px * 4;
-  width: $-fib * 2;
-  height: $-fib-px / 2;
-  background: $-aqua;
+  align-self: center;
+  border-radius: $-fib-px;
+  margin-top: $-fib-big-px;
+  /** the bottom container is 2 times bigger than top
+   *  so I keep margin-bottom 2 times bigger as well
+   */
+  margin-bottom: $-fib-big-px * 2;
+  width: 100% - $-fib;
+  height: $-fib-px;
+  background: $-before-morning;
   opacity: 0.2;
+}
+.information-container {
+  background: radial-gradient($-foggy-morning, $-night-blue);
+  border-radius: $-fib-px * 10;
+  opacity: $-fib-mul * 3;
+  height: 50%;
+  width: $-fib * 2;
 }
 </style>
